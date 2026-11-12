@@ -1,0 +1,6 @@
+{
+  "name": "PayPilot AI",
+  "description": "Intelligent financial copilot for consumers, freelancers, and small businesses combining smart spending, user-controlled payments, invoicing, and cash-flow forecasting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

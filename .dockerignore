@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+.git
+.github
+.playwright-cli
+*.log
+.env
+.env.local
+.DS_Store
+coverage
+docs
