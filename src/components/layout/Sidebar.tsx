@@ -147,7 +147,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobileOpen }) =
               }}
             />
             <div className="min-w-0 flex-1">
-              <p className="truncate text-xs font-semibold text-slate-900">{user.name}</p>
+              <div className="flex items-center gap-1.5">
+                <p className="truncate text-xs font-semibold text-slate-900">{user.name}</p>
+                <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[9px] font-semibold text-slate-500 uppercase tracking-wider shrink-0">Demo</span>
+              </div>
               <p className="truncate text-[11px] text-slate-500">{user.companyName}</p>
             </div>
           </div>

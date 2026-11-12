@@ -280,9 +280,12 @@ export const SettingsPage: React.FC = () => {
       {activeTab === 'profile' && (
         <form onSubmit={handleSaveProfile} className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-2xs space-y-4 max-w-2xl text-xs">
           <div>
-            <h3 className="text-sm font-bold text-slate-900">Personal & Business Profile</h3>
-            <p className="text-slate-500 mt-0.5">
-              These details appear on generated invoices, reminders, and purchase audits.
+            <div className="flex items-center gap-2">
+              <h3 className="text-sm font-bold text-slate-900">Personal & Business Profile</h3>
+              <span className="rounded bg-amber-100 text-amber-800 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider">Sample Demo Persona</span>
+            </div>
+            <p className="text-slate-500 mt-1">
+              Pre-seeded with demo identity (Jordan Miller / Miller Design Lab LLC). Customize with your own business name and contact information to personalize generated invoices, reminders, and purchase reviews.
             </p>
           </div>
 

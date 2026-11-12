@@ -529,7 +529,7 @@ export async function processAssistantRequest(request: AssistantRequest): Promis
     return generateDeterministicResponse(request);
   }
 
-  const timeoutMs = 25000;
+  const timeoutMs = 5000;
   const callWithTimeout = <T>(promise: Promise<T>, ms: number, label: string): Promise<T> => {
     return Promise.race([
       promise,

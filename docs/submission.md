@@ -64,7 +64,7 @@ Small business founders want financial copilots, not autonomous black boxes that
   - Invoicing API v2 (`/v2/invoicing/invoices`, `/v2/invoicing/invoices/{id}/send`, `/v2/invoicing/invoices/{id}/remind`)
   - Webhooks API (`/api/paypal/webhooks` with certificate domain & signature verification)
 - **Quality Assurance**:
-  - `node:test` + `node:assert/strict` (70 automated test suites)
+  - `node:test` + `node:assert/strict` (71 automated test suites)
   - Headless Chromium UI verification via `playwright-cli`
   - `tsc --noEmit` static analysis (zero errors)
 

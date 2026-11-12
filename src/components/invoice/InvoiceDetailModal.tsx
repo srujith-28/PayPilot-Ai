@@ -32,7 +32,9 @@ export const InvoiceDetailModal: React.FC<InvoiceDetailModalProps> = ({
             <span
               className={`rounded px-2 py-0.5 text-xs font-semibold ${
                 invoice.status === 'paid'
-                  ? 'bg-emerald-50 text-emerald-800'
+                  ? invoice.settlementType === 'PAYPAL_VERIFIED'
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                    : 'bg-slate-100 text-slate-700 border border-slate-200'
                   : invoice.status === 'overdue'
                   ? 'bg-rose-50 text-rose-800'
                   : invoice.status === 'sent'
@@ -40,7 +42,11 @@ export const InvoiceDetailModal: React.FC<InvoiceDetailModalProps> = ({
                   : 'bg-slate-100 text-slate-700'
               }`}
             >
-              {invoice.status.toUpperCase()}
+              {invoice.status === 'paid'
+                ? invoice.settlementType === 'PAYPAL_VERIFIED'
+                  ? 'PAID (PAYPAL VERIFIED)'
+                  : 'PAID (DEMO SETTLEMENT)'
+                : invoice.status.toUpperCase()}
             </span>
           </div>
 
@@ -61,6 +67,29 @@ export const InvoiceDetailModal: React.FC<InvoiceDetailModalProps> = ({
             </button>
           </div>
         </div>
+
+        {/* Paid Settlement Notice */}
+        {invoice.status === 'paid' && (
+          <div className={`mb-5 flex items-center justify-between rounded-xl p-3 text-xs border ${
+            invoice.settlementType === 'PAYPAL_VERIFIED'
+              ? 'bg-emerald-50/80 border-emerald-200 text-emerald-900'
+              : 'bg-slate-50 border-slate-200 text-slate-700'
+          }`}>
+            <span className="flex items-center gap-1.5 font-medium">
+              <CheckCircle2 className={`h-4 w-4 shrink-0 ${invoice.settlementType === 'PAYPAL_VERIFIED' ? 'text-emerald-600' : 'text-slate-500'}`} />
+              <span>
+                {invoice.settlementType === 'PAYPAL_VERIFIED'
+                  ? 'Settlement verified via authoritative PayPal Sandbox API.'
+                  : 'Settlement recorded via manual demo action in testing workspace.'}
+              </span>
+            </span>
+            {invoice.paidAt && (
+              <span className="font-mono text-[11px] opacity-80 shrink-0">
+                Settled: {invoice.paidAt.split('T')[0]}
+              </span>
+            )}
+          </div>
+        )}
 
         {/* Invoice Header Details */}
         <div className="grid grid-cols-2 gap-6 text-xs mb-6">
